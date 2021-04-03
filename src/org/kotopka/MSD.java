@@ -24,16 +24,18 @@ public class MSD {
         // sort from a[lo] to a[hi], starting at the dth character
 
         // insertion sort cutoff
-        if(hi <= lo + CUTOFF) {
-            insertionSort(a, lo, hi, d);
-            return;
-        }
+//        if(hi <= lo + CUTOFF) {
+//            insertionSort(a, lo, hi, d);
+//            return;
+//        }
+
+        if (hi <= lo) return;
 
         int[] count = new int[R + 2];
 
         // compute freq. counts
         for (int i = lo; i <= hi ; i++) {
-            count[charAt(a[i], d)]++;
+            count[charAt(a[i], d) + 2]++;
         }
 
         // transform counts to indices
@@ -55,7 +57,7 @@ public class MSD {
 
         // recursively sort for each character value, excluding -1
         for (int r = 0; r < R; r++) {
-            sort(a, lo + count[r], lo + count[r + 1] - 1, d);
+            sort(a, lo + count[r], lo + count[r + 1] - 1, d + 1);
         }
     }
 
