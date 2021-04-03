@@ -1,5 +1,8 @@
 package org.kotopka;
 
+import java.util.Arrays;
+
+// Most-significant-digit radx string sort
 public class MSD {
 
     private static final int R = 256;             // radix
@@ -79,7 +82,30 @@ public class MSD {
     }
 
     public static void main(String[] args) {
+        String[] input = {
+                "she",
+                "sells",
+                "seashells",
+                "by",
+                "the",
+                "sea",
+                "shore",
+                "the",
+                "shells",
+                "she",
+                "sells",
+                "are",
+                "surely",
+                "seashells"
+        };
 
+        System.out.println("Unsorted:");
+        Arrays.stream(input).forEach(System.out::println);
+
+        sort(input);
+
+        System.out.println("\nSorted:");
+        Arrays.stream(input).forEach(System.out::println);
     }
 
 }
