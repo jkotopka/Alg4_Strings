@@ -1,5 +1,6 @@
 package org.kotopka;
 
+// Least-significant-digit radix string sort
 public class LSD {
 
     public static void sort(String[] a, int w) {
@@ -24,11 +25,6 @@ public class LSD {
             // distribute
             for (int i = 0; i < n; i++) {
                 aux[count[a[i].charAt(d)]++] = a[i];
-
-//                char current = a[i].charAt(d);
-//                int index = count[current];
-//                aux[index] = a[i];
-//                index++;
             }
 
             // copy back
@@ -38,6 +34,7 @@ public class LSD {
         }
     }
 
+    // maybe easier to understand than the example above
     public static void sortExpandedExplanation(String[] a, int w) {
         // sort a[] on w characters
         int n = a.length;
