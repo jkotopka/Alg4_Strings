@@ -1,11 +1,12 @@
 package org.kotopka;
 
 import java.util.Arrays;
+import java.util.Random;
 
-// Most-significant-digit radx string sort
+// Most-significant-digit radix string sort
 public class MSD {
 
-    private static final int R = 256;             // radix
+    private static final int R = 256;       // radix
     private static final int CUTOFF = 15;   // cutoff for small subarrays
     private static String[] aux;
 
@@ -108,6 +109,24 @@ public class MSD {
 
         System.out.println("\nSorted:");
         Arrays.stream(input).forEach(System.out::println);
+
+        final int NUM_STRINGS = 20;
+        final int STRING_LENGTH = 10;
+        String[] randString = new String[NUM_STRINGS];
+        Random rand = new Random();
+
+        for (int i = 0; i < NUM_STRINGS; i++) {
+            randString[i] = RandStringGen.generate(rand.nextInt(STRING_LENGTH) + 1); // ensure length at least 1
+        }
+
+        System.out.println("\nRandom strings:");
+        Arrays.stream(randString).forEach(System.out::println);
+
+        // considers UPPERCASE letters as less than the corresponding lowercase letter
+        sort(randString);
+
+        System.out.println("\nRandom strings sorted:");
+        Arrays.stream(randString).forEach(System.out::println);
     }
 
 }
