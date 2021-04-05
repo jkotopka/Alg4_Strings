@@ -32,7 +32,7 @@ public class ThreeWayStringQuickSort {
 
         // recursive sorts on less-than, equal, and greater-than partitions
         sort(a, lo, lt - 1, d);
-        if (v >= 0) sort (a, lt, gt, d + 1);
+        if (v >= 0) sort (a, lt, gt, d + 1); // d + 1 because we've already sorted the dth character
         sort(a, gt + 1, hi, d);
     }
 
